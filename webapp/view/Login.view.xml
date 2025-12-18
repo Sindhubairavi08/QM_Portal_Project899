@@ -1,0 +1,26 @@
+<mvc:View controllerName="qmportal899.controller.Login"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>appTitle}">
+        <content>
+            <FlexBox alignItems="Center" justifyContent="Center" height="100%">
+                <items>
+                    <VBox width="400px" class="sapUiSmallMargin">
+                        <Title text="{i18n>loginTitle}" level="H2" class="sapUiTinyMarginBottom"/>
+                        <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                            <form:content>
+                                <Label text="{i18n>userIdLabel}" required="true"/>
+                                <Input id="userIdInput" value="{/userId}" />
+                                <Label text="{i18n>passwordLabel}" required="true"/>
+                                <Input id="passwordInput" type="Password" value="{/password}" />
+                            </form:content>
+                        </form:SimpleForm>
+                        <Button text="{i18n>loginButton}" type="Emphasized" press=".onLogin" width="100%" class="sapUiSmallMarginTop"/>
+                    </VBox>
+                </items>
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>

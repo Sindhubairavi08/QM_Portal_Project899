@@ -1,0 +1,29 @@
+<mvc:View controllerName="qmportal899.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="dashboardPage" title="{i18n>dashboardTitle}" showNavButton="false">
+        <headerContent>
+            <Button icon="sap-icon://log" text="{i18n>logoutButton}" press=".onLogout" type="Transparent"/>
+        </headerContent>
+        <content>
+            <TileContainer>
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>tileInspectionLots}" subheader="View Pending Lots" press=".onNavToInspectionLots">
+                    <TileContent>
+                        <ImageContent src="sap-icon://activity-items" />
+                    </TileContent>
+                </GenericTile>
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>tileResultRecording}" subheader="Record Quality Results" press=".onNavToResultRecording">
+                    <TileContent>
+                        <ImageContent src="sap-icon://form" />
+                    </TileContent>
+                </GenericTile>
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>tileUsageDecision}" subheader="Approve/Reject Lots" press=".onNavToUsageDecision">
+                    <TileContent>
+                        <ImageContent src="sap-icon://accept" />
+                    </TileContent>
+                </GenericTile>
+            </TileContainer>
+        </content>
+    </Page>
+</mvc:View>

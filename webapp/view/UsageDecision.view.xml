@@ -1,0 +1,48 @@
+<mvc:View controllerName="qmportal899.controller.UsageDecision"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Page id="usageDecisionPage" title="{i18n>usageDecisionTitle}" showNavButton="true" navButtonPress=".onNavBack">
+        <content>
+            <Table id="idUsageTable" items="{/ZQM899_USAGE}" growing="true" growingThreshold="10" mode="SingleSelectMaster" selectionChange=".onSelectionChange">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Select Lot to Make Decision"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column><Text text="{i18n>colInspectionLot}" /></Column>
+                    <Column><Text text="{i18n>colMaterial}" /></Column>
+                    <Column><Text text="{i18n>colQuantity}" /></Column>
+                    <Column><Text text="Recorded Qty" /></Column>
+                    <Column><Text text="{i18n>colStatus}" /></Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <Text text="{InspectionLot}" />
+                            <Text text="{Material}" />
+                            <Text text="{InspectionLotQuantity}" />
+                            <!-- Calculated Recorded Qty sum could be backend or frontend calculated. Assuming backend field or manually calc -->
+                            <Text text="{RecordedQuantity}" /> 
+                            <ObjectStatus text="{UsageDecision}" state="{= ${UsageDecision} === 'Approved' ? 'Success' : ${UsageDecision} === 'Rejected' ? 'Error' : 'None'}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <Panel id="decisionPanel" headerText="Decision Details" visible="false" class="sapUiSmallMargin">
+                <content>
+                    <VBox class="sapUiSmallMargin">
+                        <Label text="{i18n>labelComment}" />
+                        <TextArea id="commentArea" width="100%" rows="4" value="{DecisionComment}"/>
+                        <HBox class="sapUiSmallMarginTop">
+                            <Button text="{i18n>btnApprove}" type="Accept" press=".onApprove" class="sapUiSmallMarginEnd"/>
+                            <Button text="{i18n>btnReject}" type="Reject" press=".onReject" />
+                        </HBox>
+                    </VBox>
+                </content>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>
